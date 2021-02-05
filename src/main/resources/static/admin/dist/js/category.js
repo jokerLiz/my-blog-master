@@ -69,6 +69,9 @@ function reload() {
     }).trigger("reloadGrid");
 }
 
+/**
+ * 添加分类
+ */
 function categoryAdd() {
     reset();
     $('.modal-title').html('分类添加');
@@ -117,6 +120,9 @@ $('#saveButton').click(function () {
     }
 });
 
+/**
+ * 修改分类
+ */
 function categoryEdit() {
     reset();
     var id = getSelectedRow();
@@ -165,16 +171,24 @@ function deleteCagegory() {
     );
 }
 
-
+/**
+ *
+ */
 function reset() {
-    console.log("123")
+    // 获取选中记录的id
     var id = getSelectedRow();
+    // 根据id获取该条数据的name和icon,用于初始化在输入框中
     var category_name = $("#jqGrid").jqGrid('getRowData',id).categoryName;
-    console.log(category_name);
+    // var category_icon = $("#jqGrid").jqGrid('getRowData',id).categoryIcon;
     if (category_name == null){
         $("#categoryName").val('');
+        $("#categoryIcon option:first").prop("selected", 'selected');
         return;
     }
+    // var num = category_icon.indexOf(`.png`);
+    // var realIcon = category_icon[num - 1];
+    // console.log(realIcon);
+
     $("#categoryName").val(category_name);
     $("#categoryIcon option:first").prop("selected", 'selected');
 }
