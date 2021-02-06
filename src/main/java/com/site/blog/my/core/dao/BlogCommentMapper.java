@@ -1,9 +1,12 @@
 package com.site.blog.my.core.dao;
 
 import com.site.blog.my.core.entity.BlogComment;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 import java.util.Map;
 
+@Mapper
 public interface BlogCommentMapper {
     int deleteByPrimaryKey(Long commentId);
 

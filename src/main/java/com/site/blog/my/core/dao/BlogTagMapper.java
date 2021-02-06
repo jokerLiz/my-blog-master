@@ -3,8 +3,11 @@ package com.site.blog.my.core.dao;
 import com.site.blog.my.core.entity.BlogTag;
 import com.site.blog.my.core.entity.BlogTagCount;
 import com.site.blog.my.core.util.PageQueryUtil;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
+@Mapper
 public interface BlogTagMapper {
     int deleteByPrimaryKey(Integer tagId);
 

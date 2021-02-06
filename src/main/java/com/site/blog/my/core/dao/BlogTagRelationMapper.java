@@ -1,10 +1,12 @@
 package com.site.blog.my.core.dao;
 
 import com.site.blog.my.core.entity.BlogTagRelation;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface BlogTagRelationMapper {
     int deleteByPrimaryKey(Long relationId);
 

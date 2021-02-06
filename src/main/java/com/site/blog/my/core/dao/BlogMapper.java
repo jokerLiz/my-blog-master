@@ -2,10 +2,12 @@ package com.site.blog.my.core.dao;
 
 import com.site.blog.my.core.entity.Blog;
 import com.site.blog.my.core.util.PageQueryUtil;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface BlogMapper {
     int deleteByPrimaryKey(Long blogId);
 
