@@ -69,15 +69,6 @@ function reload() {
     }).trigger("reloadGrid");
 }
 
-/**
- * 添加分类
- */
-function categoryAdd() {
-    reset();
-    $('.modal-title').html('分类添加');
-    $('#categoryModal').modal('show');
-}
-
 //绑定modal上的保存按钮
 $('#saveButton').click(function () {
     var categoryName = $("#categoryName").val();
@@ -121,10 +112,19 @@ $('#saveButton').click(function () {
 });
 
 /**
+ * 添加分类
+ */
+function categoryAdd() {
+    reset(1);
+    $('.modal-title').html('分类添加');
+    $('#categoryModal').modal('show');
+}
+
+/**
  * 修改分类
  */
 function categoryEdit() {
-    reset();
+    reset(2);
     var id = getSelectedRow();
     if (id == null) {
         return;
@@ -172,19 +172,22 @@ function deleteCagegory() {
 }
 
 /**
- *
+ *  初始化弹框内容
+ *  1.添加时,参数为1,那么参数初始化时,categoryName为'',categoryIcon为第一个默认图标
+ *  2.修改时,参数为2,那么参数初始化时,categoryName通过获取表栏中数据进行初始化,categoryIcon为第一个默认图标(不太会获取)
  */
-function reset() {
+function reset(number) {
+    if(number == 1){
+        $("#categoryName").val('');
+        $("#categoryIcon option:first").prop("selected", 'selected');
+        return;
+    }
+
     // 获取选中记录的id
     var id = getSelectedRow();
     // 根据id获取该条数据的name和icon,用于初始化在输入框中
     var category_name = $("#jqGrid").jqGrid('getRowData',id).categoryName;
     // var category_icon = $("#jqGrid").jqGrid('getRowData',id).categoryIcon;
-    if (category_name == null){
-        $("#categoryName").val('');
-        $("#categoryIcon option:first").prop("selected", 'selected');
-        return;
-    }
     // var num = category_icon.indexOf(`.png`);
     // var realIcon = category_icon[num - 1];
     // console.log(realIcon);
