@@ -45,11 +45,17 @@ public class TagServiceImpl implements TagService {
         return false;
     }
 
+    /**
+     * 删除tag验证是否有关联关系
+     * @param ids
+     * @return
+     */
     @Override
     public Boolean deleteBatch(Integer[] ids) {
         //已存在关联关系不删除
         List<Long> relations = relationMapper.selectDistinctTagIds(ids);
-        if (CollectionUtils.isEmpty(relations)) {
+//        System.out.println(relations);        []
+        if (!(CollectionUtils.isEmpty(relations))) {
             return false;
         }
         //删除tag
