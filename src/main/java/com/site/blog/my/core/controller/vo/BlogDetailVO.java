@@ -1,20 +1,24 @@
 package com.site.blog.my.core.controller.vo;
 
+import lombok.Data;
+
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class BlogDetailVO {
-    private Long blogId;
+@Data
+public class BlogDetailVO implements Serializable {
+    private Long blogId;    // 文章id
 
-    private String blogTitle;
+    private String blogTitle;   // 文章标题
 
-    private Integer blogCategoryId;
+    private Integer blogCategoryId;   // 文章对应分类id
 
-    private Integer commentCount;
+    private Integer commentCount;      // 评论数量
 
-    private String blogCategoryIcon;
+    private String blogCategoryIcon;   // 文章分类图标
 
-    private String blogCategoryName;
+    private String blogCategoryName;    // 文章分类名称
 
     private String blogCoverImage;
 
@@ -28,99 +32,4 @@ public class BlogDetailVO {
 
     private Date createTime;
 
-    public Long getBlogId() {
-        return blogId;
-    }
-
-    public void setBlogId(Long blogId) {
-        this.blogId = blogId;
-    }
-
-    public String getBlogTitle() {
-        return blogTitle;
-    }
-
-    public void setBlogTitle(String blogTitle) {
-        this.blogTitle = blogTitle;
-    }
-
-    public Integer getBlogCategoryId() {
-        return blogCategoryId;
-    }
-
-    public void setBlogCategoryId(Integer blogCategoryId) {
-        this.blogCategoryId = blogCategoryId;
-    }
-
-    public String getBlogCategoryIcon() {
-        return blogCategoryIcon;
-    }
-
-    public void setBlogCategoryIcon(String blogCategoryIcon) {
-        this.blogCategoryIcon = blogCategoryIcon;
-    }
-
-    public String getBlogCategoryName() {
-        return blogCategoryName;
-    }
-
-    public void setBlogCategoryName(String blogCategoryName) {
-        this.blogCategoryName = blogCategoryName;
-    }
-
-    public Long getBlogViews() {
-        return blogViews;
-    }
-
-    public void setBlogViews(Long blogViews) {
-        this.blogViews = blogViews;
-    }
-
-    public List<String> getBlogTags() {
-        return blogTags;
-    }
-
-    public void setBlogTags(List<String> blogTags) {
-        this.blogTags = blogTags;
-    }
-
-    public String getBlogContent() {
-        return blogContent;
-    }
-
-    public void setBlogContent(String blogContent) {
-        this.blogContent = blogContent;
-    }
-
-    public Integer getCommentCount() {
-        return commentCount;
-    }
-
-    public void setCommentCount(Integer commentCount) {
-        this.commentCount = commentCount;
-    }
-
-    public Byte getEnableComment() {
-        return enableComment;
-    }
-
-    public void setEnableComment(Byte enableComment) {
-        this.enableComment = enableComment;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getBlogCoverImage() {
-        return blogCoverImage;
-    }
-
-    public void setBlogCoverImage(String blogCoverImage) {
-        this.blogCoverImage = blogCoverImage;
-    }
 }
