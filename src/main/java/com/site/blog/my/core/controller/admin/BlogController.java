@@ -33,6 +33,7 @@ public class BlogController {
 
     @Resource
     private BlogService blogService;
+
     @Resource
     private CategoryService categoryService;
 
