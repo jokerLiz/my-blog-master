@@ -5,6 +5,7 @@ import com.site.blog.my.core.entity.BlogComment;
 import com.site.blog.my.core.entity.BlogLink;
 import com.site.blog.my.core.service.*;
 import com.site.blog.my.core.util.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,8 @@ import java.util.Map;
 @Controller
 public class MyBlogController {
 
-    public static String theme = "amaze";
+    @Value("${theme}")    // 获取yaml文件中的配置值
+    public String theme;
     @Resource
     private BlogService blogService;
     @Resource
@@ -56,8 +58,8 @@ public class MyBlogController {
             return "error/error_404";
         }
         request.setAttribute("blogPageResult", blogPageResult);
-        request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
+        request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
         request.setAttribute("pageName", "首页");
         request.setAttribute("configurations", configService.getAllConfigs());
